@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Property Management Club</title>
+  <style>
+      
+      
+      
+      
+      
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
+    }
+
+    /* Navigation */
+    nav#cssmenu {
+      background: #1f1f1f;
+    }
+
+    nav#cssmenu ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav#cssmenu ul li {
+      position: relative;
+    }
+
+    nav#cssmenu ul li a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+
+    nav#cssmenu ul li ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #2c2c2c;
+      display: none;
+      min-width: 180px;
+      z-index: 1000;
+    }
+
+    nav#cssmenu ul li:hover ul {
+      display: block;
+    }
+
+    nav#cssmenu ul li ul li a {
+      padding: 12px 16px;
+      color: #ddd;
+    }
+
+    nav#cssmenu ul li ul li a:hover {
+      background: #444;
+    }
+
+    /* Hero */
+    .header-banner {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+
+    .banner-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      filter: brightness(60%);
+    }
+
+    .header-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .header-text h1 {
+      font-size: 3rem;
+    }
+
+    .header-text p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .button-header {
+      background-color: #0073e6;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-header:hover {
+      background-color: #005bb5;
+    }
+
+    /* Gallery */
+    #gallery-section {
+      background-color: #000;
+      padding: 60px 20px;
+    }
+
+    #gallery-section h2 {
+      text-align: center;
+      color: white;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 233px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #007bff;
+    }
+
+    /* Lightbox Viewer */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      nav#cssmenu ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-text h1 {
+        font-size: 2rem;
+      }
+
+      .header-text p {
+        font-size: 1rem;
+      }
+    }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  body {
+    font-family: 'Inter', sans-serif;
+    background: white;
+    color: #e0e0e0;
+    margin: 0;
+  }
+
+  #cssmenu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  #cssmenu li {
+    position: relative;
+  }
+
+  #cssmenu a {
+    display: block;
+    padding: 15px 20px;
+    color: #00ffff;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    transition: all 0.3s ease;
+  }
+
+  #cssmenu a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #00ffff;
+  }
+
+
+        
+      
+      
+     
+      
+      
+      
+      /* Color for the active/current menu item */
+
+/* Change color of links on hover */
+#cssmenu ul li a:hover {
+  color: #009688;         /* Teal on hover */
+}
+
+/* Style dropdown parent items */
+.menu-dropdown {
+  color: #3f51b5;         /* Indigo */
+}
+
+/* Optional: style dropdown menus */
+.menu-dropdown{
+  color: #444;            /* Dark gray for submenu items */
+}
+
+/* Optional: hover effect for dropdown submenu items */
+.menu-dropdown ul li a:hover {
+  color: #e91e63;         /* Pink on hover */
+}
+
+      
+      
+      
+  </style>
+    
+    
+    
+</head>
+
+    
+    
+    <body>
+
+    
+
+        <header>
+       <nav id="cssmenu">
+      <ul>
+        <li class="has-sub"><a href="index.html" style="font-family: 'Bebas Neue', sans-serif;">Home</a></li>
+        <li class="has-sub "><a href="explore_all_properties.html" style="font-family: 'Bebas Neue', sans-serif;">Properties</a>
+          <ul>
+            <li><a href="single01.html" style="font-family: 'Bebas Neue', sans-serif;">Singles</a></li>
+            <li><a href="sharing01.html" style="font-family: 'Bebas Neue', sans-serif;">Sharing</a></li>
+            <li><a href="ensuites01.html" style="font-family: 'Bebas Neue', sans-serif;">Ensuites</a></li>
+            <li><a href="bachelors01.html" style="font-family: 'Bebas Neue', sans-serif;">Bachelors</a></li>
+              <li><a href=" view_guest01.html" style="font-family: 'Bebas Neue', sans-serif;">Guest</a></li>
+              
+             
+            <li><a href="apartment01.html" style="font-family: 'Bebas Neue', sans-serif;">Apartments</a></li>
+            <li><a href="house01.html" style="font-family: 'Bebas Neue', sans-serif;">Houses</a></li>
+          </ul>
+        </li>
+        <li><a href="archive.html" style="font-family: 'Bebas Neue', sans-serif;">Gallery</a></li>
+        <li><a href="explore_all_properties.html" style="font-family: 'Bebas Neue', sans-serif;">Explore</a></li>
+        <li><a href="about.html" style="font-family: 'Bebas Neue', sans-serif;">About</a></li>
+        <li class="has-sub"><a href="#" style="font-family: 'Bebas Neue', sans-serif;">Contact</a>
+          <ul>
+            <li><a href="#" style="font-family: 'Bebas Neue', sans-serif;">WhatsApp</a></li>
+            <li><a href="#" style="font-family: 'Bebas Neue', sans-serif;">Email</a></li>
+            <li><a href="#" style="font-family: 'Bebas Neue', sans-serif;">Facebook</a></li>
+            <li><a href="#" style="font-family: 'Bebas Neue', sans-serif;">Instagram</a></li>
+            <li><a href="#" style="font-family: 'Bebas Neue', sans-serif;">TikTok</a></li>
+            <li><a href="#" style="font-family: 'Bebas Neue', sans-serif;">YouTube</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+		
+      
+      
+      
+      
+      
+      
+      
+      
+            <div class="header-banner">
+              <div class="banner-image">
+                <img src="images/studentssitting.png" alt="Futuristic Property View" />
+              </div>
+              <div class="header-text">
+                <h1>Property Management Club</h1>
+                <p>we connect communities to smart, sustainable living spaces.</p>
+                <a class="button-header" href="explore_all_properties.html">Explore All Properties</a>
+              </div>
+            </div>
+  </header>
+    
+    
+    
+    
+    
+<section id="gallery-section" style="background-color: whitesmoke; padding: 20px;">
+  <h2 style="color: black;">OUR GALLERY</h2>
+
+  <div class="gallery-grid" id="gallery"></div>
+  <div style="text-align: center; margin-top: 20px;">
+   <button id="loadMoreBtn" style="padding: 10px 20px; font-size: 16px; background-color: lightblue; color: black;">Load More</button>
+
+  </div>
+
+  <!-- Fullscreen Modal -->
+  <div id="imageModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background:rgba(255,255,255,0.9); align-items:center; justify-content:center;">
+    <span id="closeModal" style="position:absolute; top:20px; right:30px; font-size:30px; color:black; cursor:pointer;">&times;</span>
+    <div style="position:relative; display:flex; justify-content:center; align-items:center; height:100%;">
+      <!-- Previous and Next arrows -->
+      <span id="prevBtn" style="position:absolute; left:20px; font-size:30px; color:black; cursor:pointer;">&#10094;</span>
+      <img id="modalImage" src="" style="max-width:90%; max-height:90%; border-radius:10px;" />
+      <span id="nextBtn" style="position:absolute; right:20px; font-size:30px; color:black; cursor:pointer;">&#10095;</span>
+    </div>
+  </div>
+
+  <script>
+    const images = [
+      'images/single001/picture1.JPG',
+      'images/single001/picture2.JPG',
+      'images/single001/picture2.JPG',
+      'images/single001/picture2.JPG',
+      'images/single001/picture2.JPG',
+      'images/single001/picture3.JPG',
+      'images/single001/picture4.JPG',
+      'images/single001/picture5.JPG',
+      'images/single001/picture6.JPG',
+      'images/single001/picture7.JPG',
+      'images/single001/picture1.JPG'
+        
+        
+    ];
+
+    const gallery = document.getElementById('gallery');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeModal = document.getElementById('closeModal');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentIndex = 0;
+    const imagesPerLoad = 3;
+
+    // Function to load the images
+    function loadImages() {
+      const nextImages = images.slice(currentIndex, currentIndex + imagesPerLoad);
+      nextImages.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = "Gallery Image";
+        img.style.width = "100%";
+        img.style.height = "233px";
+        img.style.objectFit = "cover";
+        img.style.borderRadius = "8px";
+        img.style.transition = "transform 0.3s, box-shadow 0.3s";
+        img.style.cursor = "pointer";
+
+        // Event listener for opening the modal on click
+        img.addEventListener("click", () => openModal(src));
+
+        // Hover effects for images
+        img.addEventListener("mouseover", () => {
+          img.style.transform = "scale(1.05)";
+          img.style.boxShadow = "0 0 15px #007bff";
+        });
+
+        img.addEventListener("mouseout", () => {
+          img.style.transform = "scale(1)";
+          img.style.boxShadow = "none";
+        });
+
+        gallery.appendChild(img);
+      });
+
+      currentIndex += imagesPerLoad;
+      if (currentIndex >= images.length) {
+        loadMoreBtn.style.display = 'none'; // Hide the button when no more images
+      }
+    }
+
+    // Function to open the modal
+    function openModal(src) {
+      modalImage.src = src;
+      imageModal.style.display = "flex";
+      currentIndex = images.indexOf(src);  // Set the index of the clicked image
+    }
+
+    // Function to navigate to the next image
+    function showNextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      modalImage.src = images[currentIndex];
+    }
+
+    // Function to navigate to the previous image
+    function showPrevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      modalImage.src = images[currentIndex];
+    }
+
+    // Close the modal when the close button is clicked
+    closeModal.addEventListener("click", () => {
+      imageModal.style.display = "none";
+      modalImage.src = ""; // Clear the image when closing the modal
+    });
+
+    // Event listeners for the next and previous buttons
+    nextBtn.addEventListener("click", showNextImage);
+    prevBtn.addEventListener("click", showPrevImage);
+
+    // Load initial set of images
+    loadImages();
+
+    // Load more images when the button is clicked
+    loadMoreBtn.addEventListener("click", loadImages);
+  </script>
+</section>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+  }
+
+  /* Lightbox styles */
+  #imageModal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    align-items: center;
+    justify-content: center;
+  }
+
+  #imageModal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+
+  #closeModal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+  }
+
+  #prevBtn, #nextBtn {
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #prevBtn {
+    left: 10px;
+  }
+
+  #nextBtn {
+    right: 10px;
+  }
+</style>
+
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Lightbox styles */
+  #imageModal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+  }
+
+  #imageModal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+
+  #closeModal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+
+  #prevBtn, #nextBtn {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #prevBtn {
+    left: 10px;
+  }
+
+  #nextBtn {
+    right: 10px;
+  }
+</style>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Lightbox styles */
+  #imageModal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+  }
+
+  #imageModal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+
+  #closeModal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+</style>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style>
+
+
+  <!-- Lightbox Viewer -->
+  <div id="lightbox">
+    <img src="" alt="Expanded view" id="lightbox-img">
+  </div>
+
+  <script>
+    const gallery = document.querySelectorAll('#gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    let currentIndex = 0;
+
+    gallery.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % gallery.length;
+      lightboxImg.src = gallery[currentIndex].src;
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>

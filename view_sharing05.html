@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery Section</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Optional: Fancybox CSS (for lightbox effect, if needed) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    #gallery-section {
+      padding: 60px 0;
+      background-color: #fff;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .item:hover {
+      transform: translateY(-5px);
+    }
+
+    .item .item-wrap {
+      position: relative;
+      display: block;
+      text-align: center;
+    }
+
+    .item .item-wrap::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 8px;
+    }
+
+    .item:hover .item-wrap::before {
+      opacity: 1;
+    }
+
+    .item .icon-search2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 2rem;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .item:hover .icon-search2 {
+      opacity: 1;
+    }
+
+    .img-fluid {
+      border-radius: 8px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+      
+      
+      
+        body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 1rem;
+    }
+
+    .site-section {
+      padding: 80px 0;
+    }
+
+    .bg-light {
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -15px;
+    }
+
+    .col-12, .col-md-6, .col-lg-4 {
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    .col-12 {
+      width: 100%;
+    }
+
+    .col-md-6 {
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .col-md-6 {
+        width: 50%;
+      }
+    }
+
+    .col-lg-4 {
+      width: 100%;
+    }
+
+    @media (min-width: 992px) {
+      .col-lg-4 {
+        width: 33.3333%;
+      }
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .pricing {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease-in-out;
+      height: 100%;
+    }
+
+    .pricing:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    .pricing h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .pricing .price {
+      font-size: 1.5rem;
+      color: #222;
+    }
+
+    .pricing .price span span {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #007bff;
+    }
+
+    .ul-check {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .ul-check li {
+      padding: 10px 0;
+      position: relative;
+      padding-left: 25px;
+      font-size: 1rem;
+    }
+
+    .ul-check li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .ul-check li.remove::before {
+      content: "✖";
+      color: #dc3545;
+    }
+
+    .btn {
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+      border: none;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+      border: none;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .pricing-popular .pricing {
+      border: 2px solid #007bff;
+    }
+
+    #faq-section h2 {
+      margin-bottom: 2rem;
+    }
+
+    #faq-section h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #111;
+    }
+
+    #faq-section p {
+      color: #555;
+      line-height: 1.6;
+    }
+      
+      body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7f9fc;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.page-section {
+  padding: 60px 0;
+  background: #fff;
+}
+
+.heading-section {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  position: relative;
+}
+
+.wrapper {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.contact-wrap, .info-wrap {
+  background: #fff;
+  border-radius: 10px;
+}
+
+.contact-wrap {
+  background: #f8f9fa;
+}
+
+.contact-wrap h3,
+.info-wrap h3 {
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  border: 1px solid #ccc;
+  padding: 12px 15px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+textarea.form-control {
+  resize: vertical;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.dbox {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.dbox .icon {
+  min-width: 40px;
+  height: 40px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  margin-right: 15px;
+}
+
+.dbox .text span {
+  font-weight: bold;
+}
+
+.dbox a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    box-shadow: none;
+  }
+
+  .contact-wrap,
+  .info-wrap {
+    padding: 20px;
+  }
+
+  .heading-section {
+    font-size: 2rem;
+  }
+}
+
+       /* Navbar Section Styling */
+    #navbar-section {
+      background: #333;
+    }
+
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #cssmenu {
+      width: 100%;
+      background: #333;
+    }
+
+    #cssmenu > ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #cssmenu ul li {
+      position: relative;
+    }
+
+    #cssmenu ul li a {
+      display: block;
+      padding: 15px 20px;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    #cssmenu ul li:hover > a,
+    #cssmenu ul li.active > a {
+      background: #444;
+    }
+
+    #cssmenu ul li ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: none;
+      background: #444;
+      min-width: 180px;
+      z-index: 999;
+    }
+
+    #cssmenu ul li:hover > ul {
+      display: block;
+    }
+
+    #cssmenu ul li ul li {
+      width: 100%;
+    }
+
+    #cssmenu ul li ul li a {
+      padding: 12px 16px;
+      color: #fff;
+    }
+
+    #cssmenu ul li ul li a:hover {
+      background: #555;
+    }
+
+    /* Responsive for small screens */
+    @media (max-width: 768px) {
+      #cssmenu > ul {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      #cssmenu ul li ul {
+        position: static;
+      }
+
+      #cssmenu ul li:hover > ul {
+        display: block;
+      }
+    }
+      
+  </style>
+    
+    
+    
+</head>
+    
+    
+    
+<body>
+
+    
+    
+    <section id="navbar-section">
+    <header>
+      <div id="cssmenu">
+        <ul>
+          <li class="active"><a href="index.html"><span>Home</span></a></li>
+          <li class="has-sub"><a href="#"><span>Properties</span></a>
+            <ul>
+              <li class="has-sub"><a href="single01.html"><span>Singles</span></a></li>
+              <li class="has-sub"><a href="sharing01.html"><span>Sharing</span></a></li>
+              <li class="has-sub"><a href="ensuites01.html"><span>Ensuites</span></a></li>
+              <li class="has-sub"><a href="bachelors01.html"><span>Bechalors</span></a></li>
+              <li class="has-sub"><a href="Apartment01.html"><span>Apartments</span></a></li>
+              <li class="has-sub"><a href="house01.html"><span>Houses</span></a></li>
+            </ul>
+          </li>
+          <li><a href="archive.html"><span>Gallery</span></a></li>
+          <li><a href="index.html"><span>About</span></a></li>
+          <li class="has-sub"><a href="#"><span>Contact</span></a>
+            <ul>
+       <li class="has-sub"><a href="https://www.tiktok.com/search?q=property%20management%20club&t=1751720889718"><span>TikTok</span></a></li>
+              
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </section>
+    
+    
+    
+  <section class="site-section" id="gallery-section" data-aos="fade">
+   <div>
+      <div class="container">
+      <div class="row mb-3">
+        <div class="col-12 text-center">
+          <h2 class="section-title mb-3">Sharing 005</h2>
+        </div>
+      </div>
+
+            <div id="posts" class="row no-gutter">
+          
+               <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+              <a href="images/single001/picture1.JPG" class="item-wrap fancybox" data-fancybox="gallery2">
+                <span class="icon-search2 fas fa-search"></span>
+                <img class="img-fluid" src="images/single001/picture1.JPG" style="width:800px; height:233px; object-fit: cover;">
+              </a>
+            </div>
+
+
+          
+         <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+          <a href="images/single001/picture2.JPG" class="item-wrap fancybox" data-fancybox="gallery2">
+            <span class="icon-search2 fas fa-search"></span>
+            <img class="img-fluid" src="images/single001/picture2.JPG" style="width:800px; height:233px; object-fit: cover;">
+          </a>
+        </div>
+
+
+       <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+          <a href="images/single001/picture3.JPG" class="item-wrap fancybox" data-fancybox="gallery2">
+            <span class="icon-search2 fas fa-search"></span>
+            <img class="img-fluid" src="images/single001/picture3.JPG" style="width:800px; height:233px; object-fit: cover;">
+          </a>
+        </div>
+
+        <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+          <a href="images/single001/picture4.JPG" class="item-wrap fancybox" data-fancybox="gallery2">
+            <span class="icon-search2 fas fa-search"></span>
+            <img class="img-fluid" src="images/single001/picture4.JPG" style="width:800px; height:233px; object-fit: cover;">
+          </a>
+        </div>
+
+        <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+          <a href="images/single001/picture5.JPG" class="item-wrap fancybox" data-fancybox="gallery2">
+            <span class="icon-search2 fas fa-search"></span>
+            <img class="img-fluid" src="images/single001/picture5.JPG" style="width:800px; height:233px; object-fit: cover;">
+          </a>
+        </div>
+
+        <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+          <a href="images/single001/picture6.JPG" class="item-wrap fancybox" data-fancybox="gallery2">
+            <span class="icon-search2 fas fa-search"></span>
+            <img class="img-fluid" src="images/single001/picture6.JPG" style="width:800px; height:233px; object-fit: cover;">
+          </a>
+        </div>
+
+        <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+          <a href="images/single001/picture7.JPG" class="item-wrap fancybox" data-fancybox="gallery2">
+            <span class="icon-search2 fas fa-search"></span>
+            <img class="img-fluid" src="images/single001/picture7.JPG" style="width:800px; height:233px; object-fit: cover;">
+          </a>
+        </div>
+
+        <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+          <a href="images/single001/picture1.JPG" class="item-wrap fancybox" data-fancybox="gallery2">
+            <span class="icon-search2 fas fa-search"></span>
+            <img class="img-fluid" src="images/single001/picture1.JPG" style="width:800px; height:233px; object-fit: cover;">
+          </a>
+        </div>
+
+        <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+          <a href="images/single001/picture1.JPG" class="item-wrap fancybox" data-fancybox="gallery2">
+            <span class="icon-search2 fas fa-search"></span>
+            <img class="img-fluid" src="images/single001/picture1.JPG" style="width:800px; height:233px; object-fit: cover;">
+          </a>
+        </div>
+
+       
+        </div>
+
+      
+
+      
+
+      </div>
+    </div>
+  </section>
+    
+    
+               
+     <section class="site-section bg-light" id="pricing-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade-up">
+            <h2 class="section-title mb-3">Pricing</h2>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="">
+            <div class="pricing">
+              <h3 class="text-center text-black">Previous Price</h3>
+              <div class="price text-center mb-4 ">
+                <span><span>R 2300 PM</span></span>
+              </div>
+              <ul class="list-unstyled ul-check success mb-5">
+                
+                <li>Water and Electricity included</li>
+                <li>Kitchen Fully Furnished</li>
+            
+                <li>Safe and secure Area</li>
+                <li>Parking Space</li>
+                
+              </ul>
+              <p class="text-center">
+               
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4 mb-lg-0 col-lg-4 pricing-popular" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing">
+              <h3 class="text-center text-black">Current Price</h3>
+              <div class="price text-center mb-4 ">
+                <span><span>R 2300 PM</span></span>
+                  
+                  
+                  
+                   <ul class="list-unstyled ul-check success mb-5">
+                
+              <h4 class="text-center text-black">Non Refundable Deposit</h4>
+                         <span><span>R 2300</span></span>
+                  
+                  
+          
+              
+              </ul>
+                  
+                  
+                  
+              
+              </div>
+              <ul class="list-unstyled ul-check success mb-5">
+                
+                <li>Water and Electricity included</li>
+                <li>Kitchen Fully Furnished</li>
+                <li>Showers</li>
+                <li>Parking Space</li>
+                <li>Safe and secure Area</li>
+                <li>Parking Space</li>
+                <li>Wishing Machine</li>
+              
+           
+                <li>Wifi and more</li>
+                  
+                 
+              </ul>
+              <p class="text-center">
+              <a href="#contact" class="btn btn-secondary">Apply Now</a>
+
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing">
+              <h3 class="text-center text-black">Future Price</h3>
+              <div class="price text-center mb-4 ">
+                <span><span>R2400 </span> </span>
+              </div>
+              <ul class="list-unstyled ul-check success mb-5">
+            <li>Water and Electricity included</li>
+                <li>Kitchen Fully Furnished</li>
+             
+                <li>Safe and secure Area</li>
+                <li>Parking Space</li>
+                <li>Wishing Machine</li>
+        
+                <li>Wifi and more</li>
+              </ul>
+              <p class="text-center">
+               
+              </p>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+      </div>
+    </section>
+    
+    
+    
+    
+    
+      <section class="page-section" id="contact">
+            
+            <div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h1 class="heading-section">Contact Us</h1>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-10">
+					<div class="wrapper">
+						<div class="row no-gutters">
+							<div class="col-md-6 d-flex align-items-stretch">
+								<div class="contact-wrap w-100 p-md-5 p-4 py-5">
+									<h3 class="mb-4">Apply for Sharing 005</h3>
+									<div id="form-message-warning" class="mb-4"></div> 
+				      		<div id="form-message-success" class="mb-4">
+				            Apply now and we will receive your information!
+				      		</div>
+                                    
+                                    <form id="myForm" action="https://formsubmit.co/4cf02523481def635ac52f2b7d6808e0" method="POST"  onsubmit="sendToWhatsApp(event)">
+                                        <div class="row">
+											
+                                                       <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="name">Full name</label>
+                                        <input type="text" class="form-control" name="name" id="name" 
+                                            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" 
+                                            placeholder="Enter your full name" required 
+                                            title="Please enter only letters and spaces">
+                                    </div>
+                                </div>
+
+                                                                            <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="name">Surname</label>
+                                        <input type="text" class="form-control" name="surname" id="surname" 
+                                            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" 
+                                            placeholder="Enter your Surname" required 
+                                            title="Please enter only letters and spaces">
+                                    </div>
+                                </div>
+
+
+         
+                           <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="gender">Gender</label>
+                                        <select class="form-control" name="gender" id="gender" required>
+                                            <option value="" disabled selected>Select your Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="homosexual">Homosexual</option>
+                                            <option value="transgender">Transgender</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                            
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="race">Race</label>
+                                                    <select class="form-control" name="race" id="races" required>
+                                                        <option value="" disabled selected>Select your Race</option>
+                                                        <option value="african">African</option>
+                                                        <option value="asian">Asian</option>
+                                                        <option value="european">European</option>
+                                                        <option value="colored">Colored</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            
+                                            
+                                            
+                                            
+
+                          <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="citizenship_status">Citizenship Status</label>
+                                <select class="form-control" name="citizenship_status" id="citizenship_status" required>
+                                    <option value="" disabled selected>Select your citizenship status</option>
+                                    <option value="national">National</option>
+                                    <option value="foreign">Foreign</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                                                                           <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="cell_number">identity Number</label>
+                                <input type="tel" class="form-control" name="identity_number" id="identity_number" 
+                                    pattern="^\d{13}$" maxlength="13" placeholder="Enter your 13-digit identity number" 
+                                    oninput="this.value = this.value.replace(/\D/g, '')" required
+                                    title="Please enter exactly 13 digits, no letters">
+                            </div>
+                        </div>
+
+
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="cell_number">Cell Number</label>
+                                        <input type="tel" class="form-control" name="cell_number" id="cell_number" 
+                                            pattern="^\d{10}$" maxlength="10" placeholder="Enter your 10-digit cell number" 
+                                            oninput="this.value = this.value.replace(/\D/g, '')" required
+                                            title="Please enter exactly 10 digits, no letters">
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" class="form-control" name="email" id="email" 
+                                            placeholder="Enter your email address" required 
+                                            title="Please enter a valid email address">
+                                    </div>
+                                </div>
+                                  
+                                            
+                                        <div class="col-md-12">                                          
+                                            <div class="form-group">
+                                                <label for="salary">Room Number</label>
+                                                <input type="text" class="form-control" name="room_number" id="room_number" value="Sharing 005" readonly>
+                                            </div>
+                                        </div>
+                                            
+                              
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="moving_in_date">Date of Moving In</label>
+                                            <input type="date" class="form-control" name="moving_in_date" id="moving_in_date" required>
+                                        </div>
+                                    </div>
+                                            
+                                            
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="duration_of_stay">Duration of Stay</label>
+                                    <select class="form-control" name="duration_of_stay" id="duration_of_stay" required>
+                                        <option value="" disabled selected>Select Duration</option>
+                                        <option value="6_months">6 months</option>
+                                        <option value="12_months">12 months</option>
+                                    </select>
+                                </div>
+                            </div>
+                                            
+                                            
+                                 <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="payment_option">Payment Option</label>
+                                                <select class="form-control" name="payment_option" id="payment_option" required>
+                                                    <option value="" disabled selected>Select your payment option</option>
+                                                    <option value="nsfas">NSFAS</option>
+                                                    <option value="self_paying">Self Paying</option>
+                                                    <option value="bursary">Bursary</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                            
+                                            
+                                            
+                                            
+                                  
+                                    
+											<div class="col-md-12">
+												<div class="form-group">
+													<textarea name="message" class="form-control" id="message" cols="30" rows="6" placeholder="Message"></textarea>
+												</div>
+											</div>
+                                            
+                                            
+                                            <form id="myForm" onsubmit="sendToWhatsApp(event)">
+                                                <!-- your form fields -->
+
+                                              <div class="col-md-12">
+                                                <div class="form-group">
+                                                  <input type="submit" value="Send Message" class="btn btn-primary">
+                                                  <div class="submitting"></div>
+                                                </div>
+                                              </div>
+                                            </form>
+										</div>
+									</form>
+								</div>
+							</div>
+                           
+							<div class="col-md-6 d-flex align-items-stretch">
+								<div class="info-wrap w-100 p-md-5 p-4 py-5 img">
+									<h3>Contact information</h3>
+									<p class="mb-4">We're open for any suggestion or just to have a chat</p>
+				        	<div class="dbox w-100 d-flex align-items-start">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-map-marker"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Address:</span> 333f Kubu Street Meadowlands Zone 3 Soweto</p>
+					          </div>
+				          </div>
+				        	<div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-phone"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Phone:</span> <a href="tel://1234567920">+27 747 017 967</a></p>
+					          </div>
+				          </div>
+				        	<div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-paper-plane"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Email:</span> <a href="mailto:info@yoursite.com">elitenel@yahoo.com</a></p>
+					          </div>
+				          </div>
+				        	<div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-globe"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Website</span> <a href="#">www.katli.co.za</a></p>
+					          </div>
+				          </div>
+			          </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+            </section>
+            
+    
+    
+    
+    
+    
+    
+    
+    
+        <!-- Any other scripts you have -->
+<script>
+function sendToWhatsApp(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Collect form data
+    
+    
+    
+
+    
+    
+    
+    const name = document.getElementById("name").value;
+    const surname = document.getElementById("surname").value;
+    const gender = document.getElementById("gender").value;
+    const race = document.getElementById("races").value;
+    const citizenship_status = document.getElementById("citizenship_status").value
+    const idNumber = document.getElementById("identity_number").value;
+    const cellNumber = document.getElementById("cell_number").value;
+    const email = document.getElementById("email").value;
+    const moveDate = document.getElementById("moving_in_date").value;
+    const duration = document.getElementById("duration_of_stay").value;
+    const room = document.getElementById("room_number").value;
+    const paymentOption = document.getElementById("payment_option").value;
+    const message = document.getElementById("message").value;
+
+    // WhatsApp message body
+    const msg = `New Application:
+Name: ${name} ${surname}
+Gender: ${gender}
+Race: ${race}
+citizenship_status:${citizenship_status}
+ID: ${idNumber}
+Phone: ${cellNumber}
+Email: ${email}
+Room: ${room}
+Move-in Date: ${moveDate}
+Duration: ${duration}
+Payment Option: ${paymentOption}
+Message: ${message}`;
+
+    const phoneNumber = "27838630150"; // Your WhatsApp number (no + sign)
+    const apiKey = "5918553"; // Your CallMeBot API key
+
+    const url = `https://api.callmebot.com/whatsapp.php?phone=${phoneNumber}&text=${encodeURIComponent(msg)}&apikey=${apiKey}`;
+
+    // Send WhatsApp message
+  fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        console.log("WhatsApp message sent! Response:", data);
+        alert("WhatsApp message sent successfully!");
+        
+        // Redirect immediately to Instagram
+        window.location.href = "https://www.godaddy.com/en-ph";
+      })
+      .catch(error => {
+        console.error("Error sending WhatsApp message:", error);
+        alert("You have applied successfully you will be redirected");
+        
+        // Still redirect in case of error
+        window.location.href = "https://www.godaddy.com/en-ph";
+      });
+  }
+</script>
+
+    
+  <!-- Optional: Fancybox JS (if you want lightbox effect) -->
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+    
+    
+    
+
+</body>
+</html>
+
+    
+    
+    
+    
+   
+
+    
+    
+   
